@@ -1,6 +1,15 @@
 # Robot Methods
 
+## Table of Contents
+
 [Back to Home Page](../README.md)
+
+- [Importing](#importing)
+- [Constructor](#constructor)
+- [Mouse Movement](#mouse-movement)
+- [Mouse Clicks](#mouse-clicks)
+- [Getting Screen Resolution](#getting-screen-resolution)
+- [Getting Pixel Colors](#getting-pixel-colors)
 
 I'll just run through some example code that utilzes the `Robot` class. At the end of the document I'll have an example program that you can experiment with.
 
@@ -23,7 +32,7 @@ Robot bot = new Robot();
 - `new` tells the JDK that we're creating an object
 - `Robot()` is the constructor method call found in the [documentation](https://docs.oracle.com/en/java/javase/16/docs/api/java.desktop/java/awt/Robot.html)
 
-The constructor throws an `AWTException` if the platform configuration does not allow low-level input control. Java requires us to handle the error just in case it is thrown. We'll also need to import it using `import java.awt.AWtException`. 
+The constructor throws an `AWTException` if the platform configuration does not allow low-level input control. Java requires us to handle the error just in case it is thrown. We'll also need to import it using `import java.awt.AWtException`.
 
 ```java
 try{
@@ -34,9 +43,10 @@ catch(AWTException e){
   System.out.println(e);
 }
 ```
-This is the correct way to use the `Robot` constructor. 
 
-*Instead of using a try catch, we can create our `Robot` object within a method that throws the `AWTException` instead*
+This is the correct way to use the `Robot` constructor.
+
+_Instead of using a try catch, we can create our `Robot` object within a method that throws the `AWTException` instead_
 
 ```java
 public static void createBot() throws AWTException{
@@ -48,7 +58,7 @@ public static void createBot() throws AWTException{
 
 `public void mouseMove​(int x, int y)`
 
-This one is pretty self explanatory. Notice that this is a nonstatic method, so it must be called against a `Robot` object. The x/y coordinates start in the __upper left hand corner__ of the screen.
+This one is pretty self explanatory. Notice that this is a nonstatic method, so it must be called against a `Robot` object. The x/y coordinates start in the **upper left hand corner** of the screen.
 
 ```java
 // moves the mouse to (600, 500)
@@ -60,6 +70,7 @@ bot.mousemove(600, 500)
 `Robot` gives us two methods to click the mouse: `public void mousePress​(int buttons)` and `public void mouseRelease​(int buttons)`. To simulate a mouse click, you must use both of these methods. We can simulate pretty much every button on a mouse, even mice that have extra buttons can be pressed if the JDK has the proper `Toolkit` settings enabled.
 
 The three mouse buttons:
+
 - InputEvent.BUTTON1_DOWN_MASK
 - InputEvent.BUTTON2_DOWN_MASK
 - InputEvent.BUTTON3_DOWN_MASK
@@ -70,11 +81,13 @@ The three mouse buttons:
 bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
 bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK)
 ```
-*Mouse clicks where the mouse currently rests. Use `mouseMove()` to change it's location.*
 
-### Getting screen resolution
+_Mouse clicks where the mouse currently rests. Use `mouseMove()` to change it's location._
+
+### Getting Screen Resolution
 
 Someone asked if we could get the screen resoulation. I almost had it correct during our meeting! The answer is within the `Toolkit` object, I was just missing one method call. The screen height and width are within a `Dimension` object that is returned by using a method on within the `Toolkit`. So both will need to be imported.
+
 ```java
 import java.awt.Toolkit;
 import java.awt.Dimension;
@@ -84,7 +97,7 @@ double width = screensize.getWidth();
 double height = screensize.getHeight();
 ```
 
-### Getting pixel colors
+### Getting Pixel Colors
 
 We'll need another import for this one because the `public Color getPixelColor​(int x, int y)` returns a `Color` object. Import the `Color` class like so: `import java.awt.Color`.
 
