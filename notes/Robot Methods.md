@@ -1,5 +1,7 @@
 # Robot Methods
 
+[Back to Home Page](../README.md)
+
 I'll just run through some example code that utilzes the `Robot` class. At the end of the document I'll have an example program that you can experiment with.
 
 [Documentation](https://docs.oracle.com/en/java/javase/16/docs/api/java.desktop/java/awt/Robot.html)
