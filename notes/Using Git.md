@@ -1,5 +1,7 @@
 # Using Git
 
+[Back to Home Page](../README.md)
+
 ## Git
 
 [Download link](https://git-scm.com/downloads)
