@@ -1,10 +1,3 @@
----
-tags: [Minesweeper Bot General Notes]
-title: Robot Methods
-created: '2021-10-29T23:17:35.817Z'
-modified: '2021-10-30T00:41:05.108Z'
----
-
 # Robot Methods
 
 I'll just run through some example code that utilzes the `Robot` class. At the end of the document I'll have an example program that you can experiment with.
