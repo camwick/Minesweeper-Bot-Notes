@@ -4,7 +4,7 @@ This page will host all the notes I create for the Minesweeper Bot project.
 
 ## Meeting Notes
 
-- [10/28/2021](./meeting_notes/10-28-2021.md)
+- [10/28/2021](./meetings/10-28-2021.md)
 
 ## Other Notes
 
