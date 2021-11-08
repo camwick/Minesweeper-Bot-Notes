@@ -8,5 +8,5 @@ This page will host all the notes I create for the Minesweeper Bot project.
 
 ## Other Notes
 
-- [Robot Methods]("./notes/Robot Methods.md")
-- [Using Git]("./notes/Using Git.md")
+- [Robot Methods](./notes/Robot%20Methods.md)
+- [Using Git](./notes/Using%20Git.md)
