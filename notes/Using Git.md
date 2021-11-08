@@ -1,10 +1,3 @@
----
-tags: [Minesweeper Bot General Notes]
-title: Using Git
-created: '2021-10-29T05:10:47.251Z'
-modified: '2021-10-29T19:49:43.908Z'
----
-
 # Using Git
 
 ## Git
