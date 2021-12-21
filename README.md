@@ -8,6 +8,7 @@ This page will host all the notes I create for the Minesweeper Bot project.
 
 ## Other Notes
 
+- [Fall 2021 Project Summary](./notes/Fall2021_Project_Summary.md)
 - [Robot Methods](./notes/RobotMethods.md)
 - [Using Git](./notes/UsingGit.md)
 
