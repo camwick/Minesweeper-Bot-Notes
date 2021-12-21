@@ -1,8 +1,25 @@
 # Summary of Project So Far...
 
-## Current State of `main` branch:
+## Glossary:
 
-### `Solver.java`
+- [Current State of `main` branch:](#current-state-of-main-branch)
+  - [`Solver.java`](#solver.java)
+    - [Constructors](#constructors)
+    - [Methods](#methods)
+  - [`Board.java`](#board.java)
+    - [Constructors](#constructors)
+    - [Get Methods](#get-methods)
+  - [`Cell.java`](#cell.java)
+    - [Constructors](#constructors)
+    - [Methods](#methods)
+- [Differences between main and initiateBoard branches](#differences-between-main-and-initiateBoard-branches)
+  - [Soler.java](#solver.java)
+  - [Board.java](#board.java)
+  - [Cell.java](#cell.java)
+
+## Current State of main branch
+
+### Solver.java
 
 Importing 4 classes:
 
@@ -50,31 +67,34 @@ Private class fields:
     - `calibrateBoard(true)`
       - `Board` object initializes as an empty board ... this method finds the starting position with `true` as the parameter
 
-#### Methods:
+  #### Methods:
 
-`private void calibrateUpperCorner()`:
+  `private void calibrateUpperCorner()`:
 
-The main purpose is to find the upper left hand x and y coordinates of the board on the computer screen. This is acocmplished in 3 steps:
+  The main purpose is to find the upper left hand x and y coordinates of the board on the computer screen. This is acocmplished in 3 steps:
 
-1. Loop starting from the left side of the screen until the first gray bar of the board is found
-2. From the first gray bar pixel, loop right until the first white pixel of the baord is found
-   - this finds the x coordinate of our game board
-3. From the found x coordinate, loop upwards until reaching the first gray pixel pixel of the top border
-   - this finds the y coordinate of our game board
+  1. Loop starting from the left side of the screen until the first gray bar of the board is found
+  2. From the first gray bar pixel, loop right until the first white pixel of the baord is found
 
-With the upper left hand coordinates found, all that is left is to find the length of one of the cell's sides. This is accomplished by looping from the upper left hand corner towards the right until we find a gray pixel of the cell border. We can count every pixel in between the corner and the boarder to find the `cellSideLength`.
+  - this finds the x coordinate of our game board
 
-If `this.debug = true` (established in the Solver constructor), then the mouse will move along every pixel when finding the x and y coordinates and print out valuable data that may help with debugging.
+  3. From the found x coordinate, loop upwards until reaching the first gray pixel pixel of the top border
 
-`private void calibrateBoard(boolean state)`:
+  - this finds the y coordinate of our game board
 
-The main purpose is to synchronize the state of our `Board` object with the screen's game board. If `true` is passed as a parameter, then we are only wanting to locate the the starting position because at the start of the no-guess mode game everything is unclicked but there is one cell with a green x marking a safe location to start the solving.
+  With the upper left hand coordinates found, all that is left is to find the length of one of the cell's sides. This is accomplished by looping from the upper left hand corner towards the right until we find a gray pixel of the cell border. We can count every pixel in between the corner and the boarder to find the `cellSideLength`.
 
-If we pass `false`, then we are wanting to update our board object after moves have been made on the screen board. We loop through every cell's middle position and grab the pixel color. Depending on the color of the center pixel, we can determine what number is in the cell. If the pixel is gray, then we need to determine if the cell is unclicked or empty (empty = clicked with no number/mine/flag). There is a border in unclicked cells, so we can check two pixel position colors to tell if the cell is unclicked or just empty.
+  If `this.debug = true` (established in the Solver constructor), then the mouse will move along every pixel when finding the x and y coordinates and print out valuable data that may help with debugging.
 
-Debug information will move the mouse to every cell and print out what our board object looks like after looping through all the cells on the screen.
+  `private void calibrateBoard(boolean state)`:
 
-### `Board.java`
+  The main purpose is to synchronize the state of our `Board` object with the screen's game board. If `true` is passed as a parameter, then we are only wanting to locate the the starting position because at the start of the no-guess mode game everything is unclicked but there is one cell with a green x marking a safe location to start the solving.
+
+  If we pass `false`, then we are wanting to update our board object after moves have been made on the screen board. We loop through every cell's middle position and grab the pixel color. Depending on the color of the center pixel, we can determine what number is in the cell. If the pixel is gray, then we need to determine if the cell is unclicked or empty (empty = clicked with no number/mine/flag). There is a border in unclicked cells, so we can check two pixel position colors to tell if the cell is unclicked or just empty.
+
+  Debug information will move the mouse to every cell and print out what our board object looks like after looping through all the cells on the screen.
+
+### Board.java
 
 Private class fields:
 
@@ -87,44 +107,102 @@ Private class fields:
 - `int mineCount`
   - total mines left in the board
 - `Cell[][] board`
+
   - 2 dimensional arrya of Cell objects
   - The meat and potatoes of the `Board` class
 
-#### Constructors:
+  #### Constructors:
 
-`public Board(int width, int height, int mines)`:
+  `public Board(int width, int height, int mines)`:
 
-Simply loops through the given width and height parameters and initializes `Cell[][]` ~ cells default to unclicked.
+  Simply loops through the given width and height parameters and initializes `Cell[][]` ~ cells default to unclicked.
 
-#### Get methods
+  #### Get methods
 
-`public getWidth()`:
+  `public getWidth()`:
 
-Returns the board width.
+  Returns the board width.
 
-`public int getHeight()`:
+  `public int getHeight()`:
 
-Returns the board height.
+  Returns the board height.
 
 ### `Cell.java`
 
 Private class fields:
 
 - char contents
+
   - contents of the cell
 
-#### Constructors:
+  #### Constructors:
 
-`public Cell()`:
+  `public Cell()`:
 
-Default constructor that sets `contents` to 'U'.
+  Default constructor that sets `contents` to 'U'.
 
-`public cell(char x)`:
+  `public cell(char x)`:
 
-Constructor to create a cell with a specified `char contents`.
+  Constructor to create a cell with a specified `char contents`.
 
-#### Methods
+  #### Methods
 
-`public String toString()`:
+  `public String toString()`:
 
-Returns the contents of the cell (`this.contents`) as a String.
+  Returns the contents of the cell (`this.contents`) as a String.
+
+## Differences between main and initiateBoard branches
+
+- These changes will eventually be merged into `main`, but are currently still being worked on.
+- Javadoc comments were added to every file
+
+### Solver.java
+
+Method name changes:
+
+- `calibrateUpperCorner()` changed to `calibrateBoard()`
+- `calibrateBoard()` changed to `synceBoard()`
+
+`synceBoard()`:
+
+Moved everything that had something to do with the `start` boolean into it's own if statement:
+
+```java
+if (start) {
+  // start means everything is unclicked except for a single green x cell... we'll
+  // mark this cell
+
+  if (px.getRed() == 0 && px.getGreen() == 128 && px.getBlue() == 0) {
+      this.startCoord[0] = centerX + (x * this.cellSideLength);
+      this.startCoord[1] = centerY + (y * this.cellSideLength);
+      boardState += 'S';
+  } else
+      boardState += 'U';
+else(
+  // ...
+)
+```
+
+Also added a `getBoard` method that returns `this.gameBoard`. This'll be used in the main/driver file.
+
+## Board.java
+
+No differences to the 3 methods that were already in this file in the `main` branch, but we did add a few new methods.
+
+`public void updateBoard(String boardKey)`:
+
+- Loops through the `board` object and updates every cell's `contents` variable based on the given `boardKey` string parameter.
+
+`public String toString()`
+
+- This is just a basic `toString` method -- returns the entire `board` object in a nice to view format.
+
+## Cell.java
+
+`public void setContents(char newContents)`
+
+- Change the value held in `contents`.
+
+`public String toString()`
+
+- Another basic `toString` method -- returns `contents`.
