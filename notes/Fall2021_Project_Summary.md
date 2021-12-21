@@ -1,22 +1,5 @@
 # Summary of Project So Far...
 
-## Glossary:
-
-- [Current State of `main` branch:](#current-state-of-main-branch)
-  - [Solver.java](#solverjava)
-    - [Constructors](#constructors)
-    - [Methods](#methods)
-  - [Board.java](#boardjava)
-    - [Constructors](#constructors)
-    - [Get Methods](#get-methods)
-  - [Cell.java](#celljava)
-    - [Constructors](#constructors)
-    - [Methods](#methods)
-- [Differences between main and initiateBoard branches](#differences-between-main-and-initiateBoard-branches)
-  - [Changes to Solver.java](#changes-to-solverjava)
-  - [Changes to Board.java](#changes-to-boardjava)
-  - [Changes to Cell.java](#changes-to-celljava)
-
 ## Current State of main branch
 
 ### Solver.java
