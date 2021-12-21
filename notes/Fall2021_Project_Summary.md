@@ -3,19 +3,19 @@
 ## Glossary:
 
 - [Current State of `main` branch:](#current-state-of-main-branch)
-  - [`Solver.java`](#solver.java)
+  - [Solver.java](#solver.java)
     - [Constructors](#constructors)
     - [Methods](#methods)
-  - [`Board.java`](#board.java)
+  - [Board.java](#board.java)
     - [Constructors](#constructors)
     - [Get Methods](#get-methods)
-  - [`Cell.java`](#cell.java)
+  - [Cell.java](#cell.java)
     - [Constructors](#constructors)
     - [Methods](#methods)
 - [Differences between main and initiateBoard branches](#differences-between-main-and-initiateBoard-branches)
-  - [Soler.java](#solver.java)
-  - [Board.java](#board.java)
-  - [Cell.java](#cell.java)
+  - [Changes to Solver.java](#changes-to-solver.java)
+  - [Changes to Board.java](#changes-to-board.java)
+  - [Changes to Cell.java](#changes-to-cell.java)
 
 ## Current State of main branch
 
@@ -156,7 +156,7 @@ Private class fields:
 - These changes will eventually be merged into `main`, but are currently still being worked on.
 - Javadoc comments were added to every file
 
-### Solver.java
+### Changes to Solver.java
 
 Method name changes:
 
@@ -185,7 +185,7 @@ else(
 
 Also added a `getBoard` method that returns `this.gameBoard`. This'll be used in the main/driver file.
 
-## Board.java
+## Changes to Board.java
 
 No differences to the 3 methods that were already in this file in the `main` branch, but we did add a few new methods.
 
@@ -197,7 +197,7 @@ No differences to the 3 methods that were already in this file in the `main` bra
 
 - This is just a basic `toString` method -- returns the entire `board` object in a nice to view format.
 
-## Cell.java
+## Changes to Cell.java
 
 `public void setContents(char newContents)`
 
