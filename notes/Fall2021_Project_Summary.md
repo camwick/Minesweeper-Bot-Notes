@@ -3,19 +3,19 @@
 ## Glossary:
 
 - [Current State of `main` branch:](#current-state-of-main-branch)
-  - [Solver.java](#solver.java)
+  - [Solver.java](#solverjava)
     - [Constructors](#constructors)
     - [Methods](#methods)
-  - [Board.java](#board.java)
+  - [Board.java](#boardjava)
     - [Constructors](#constructors)
     - [Get Methods](#get-methods)
-  - [Cell.java](#cell.java)
+  - [Cell.java](#celljava)
     - [Constructors](#constructors)
     - [Methods](#methods)
 - [Differences between main and initiateBoard branches](#differences-between-main-and-initiateBoard-branches)
-  - [Changes to Solver.java](#changes-to-solver.java)
-  - [Changes to Board.java](#changes-to-board.java)
-  - [Changes to Cell.java](#changes-to-cell.java)
+  - [Changes to Solver.java](#changes-to-solverjava)
+  - [Changes to Board.java](#changes-to-boardjava)
+  - [Changes to Cell.java](#changes-to-celljava)
 
 ## Current State of main branch
 
